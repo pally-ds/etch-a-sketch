@@ -6,3 +6,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.squareBlock{
+    background-color: #e8e8e8;
+}

@@ -10,12 +10,14 @@ function createSquareDiv() {
             const div = document.createElement('div');
             div.style.width = size + "px";
             div.style.height = size + "px";
-            div.style.backgroundColor = "#e8e8e8";
+            div.classList.toggle('squareBlock');
 
             container.appendChild(div);
         }
     }
 }
+
+
 
 // Initialize inital parameter
 
@@ -27,3 +29,17 @@ container.style.height = "960px";
 container.style.border = "5px solid black";
 
 createSquareDiv();
+
+// Add event listener on hover to the div element
+
+const divs = document.querySelectorAll('.squareBlock')
+divs.forEach((div) =>{
+    
+    div.addEventListener('mouseover', (e) =>{
+        e.target.style.background = "black";
+    
+    });
+})
+
+
+
