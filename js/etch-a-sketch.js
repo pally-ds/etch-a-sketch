@@ -3,31 +3,27 @@
 
 function createSquareDiv() {
     const div = document.createElement('div');
+    let size = 960/squarePerSide;
 
-    for (let i=0; i<squarePerSide; i++ ) {
-        console.log(i);       
+    for (let i=0; i<squarePerSide; i++ ) {   
         for (let j=0; j<squarePerSide; j++ ) {
             const div = document.createElement('div');
-            div.style.width = "58px";
-            div.style.height = "58px";
-            div.style.border = "1px solid black";
+            div.style.width = size + "px";
+            div.style.height = size + "px";
+            div.style.backgroundColor = "#e8e8e8";
 
             container.appendChild(div);
         }
     }
 }
 
-//Initialize inital parameter
+// Initialize inital parameter
 
 let squarePerSide = 16;
 const container = document.querySelector('#container');
 
 container.style.width = "960px";
 container.style.height = "960px";
-container.style.border = "1px solid black";
-
-
+container.style.border = "5px solid black";
 
 createSquareDiv();
-
-// define the container width and height to be 960px
