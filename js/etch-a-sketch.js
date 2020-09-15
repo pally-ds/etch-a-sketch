@@ -1,19 +1,19 @@
-function createSquareDiv(squareSize) {
-    let size = 960/squareSize;
+function createSquareDiv(squarePerSide = 16) {
+    let size = 960/squarePerSide;
+    let numOfGrid = squarePerSide**2;
 
-    for (let i=0; i<squareSize; i++ ) {   
-        for (let j=0; j<squareSize; j++ ) {
-            let div = document.createElement('div');
-            div.style.width = size + "px";
-            div.style.height = size  + "px";
-            div.classList.toggle('squareBlock');
+    for (let i=0; i<numOfGrid; i++ ) {   
+        let div = document.createElement('div');
+        div.style.width = size + "px";
+        div.style.height = size  + "px";
+        div.classList.toggle('squareBlock');
 
-            container.appendChild(div);
+        container.appendChild(div);
 
-            div.addEventListener('mouseover', (e) =>{
-                e.target.style.background = "black";    
-            });
-        }
+        // Add event listener to newly created element
+        div.addEventListener('mouseover', (e) =>{
+            e.target.style.background = "black";    
+        });
     }
 }
 
@@ -28,26 +28,11 @@ function resetSketchBoard(){
 
 
 // Initialize inital parameter
-
-let squarePerSide = 16;
 const container = document.querySelector('#container');
+createSquareDiv();
 
-container.style.width = "960px";
-container.style.height = "960px";
-container.style.border = "5px solid black";
-
-createSquareDiv(squarePerSide);
 
 // Add event listener on hover to the div element
-
-//let divs = document.querySelectorAll('.squareBlock')
-//divs.forEach((div) =>{
-    
-//    div.addEventListener('mouseover', (e) =>{
-//        e.target.style.background = "black";    
-//    });
-//})
-
 const btn = document.querySelector('#resetBtn');
 btn.addEventListener('click', resetSketchBoard);
 
